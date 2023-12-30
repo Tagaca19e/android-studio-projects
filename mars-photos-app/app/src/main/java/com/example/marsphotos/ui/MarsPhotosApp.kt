@@ -37,6 +37,7 @@ import com.example.marsphotos.R
 import com.example.marsphotos.ui.screens.HomeScreen
 import com.example.marsphotos.ui.screens.MarsViewModel
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MarsPhotosApp() {
   val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
@@ -50,6 +51,7 @@ fun MarsPhotosApp() {
       // Get viewModel using the factory companion object.
       val marsViewModel: MarsViewModel = viewModel(factory = MarsViewModel.Factory)
       HomeScreen(
+        retryAction = marsViewModel::getMarsPhotos,
         marsUiState = marsViewModel.marsUiState
       )
     }
