@@ -20,10 +20,12 @@ class DefaultAppContainer : AppContainer {
     .baseUrl(BASE_URL)
     .build()
 
+  // I think this is where the actual api call is being made to fetch the data from the web.
   private val retrofitService: MarsApiService by lazy {
     retrofit.create(MarsApiService::class.java)
   }
 
+  // Create a repository for the data.
   override val marsPhotosRepository: MarsPhotosRepository by lazy {
     NetworkMarsPhotoRepository(retrofitService)
   }

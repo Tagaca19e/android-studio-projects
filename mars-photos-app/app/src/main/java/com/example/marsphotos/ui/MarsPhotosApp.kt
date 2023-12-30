@@ -47,7 +47,7 @@ fun MarsPhotosApp() {
           .fillMaxSize()
           .padding(it)
     ) {
-      // Get the viewModel from factory.
+      // Get viewModel using the factory companion object.
       val marsViewModel: MarsViewModel = viewModel(factory = MarsViewModel.Factory)
       HomeScreen(
         marsUiState = marsViewModel.marsUiState

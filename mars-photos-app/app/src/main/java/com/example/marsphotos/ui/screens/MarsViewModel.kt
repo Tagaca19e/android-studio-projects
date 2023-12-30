@@ -59,8 +59,8 @@ class MarsViewModel(
   fun getMarsPhotos() {
     viewModelScope.launch {
       marsUiState = try {
-        // Returns a list of MarsPhotos class.
-        val listResult = marsPhotosRepository.getMarsphotos()
+        // Returns a list of MarsPhotos class from the repository.
+        val listResult = marsPhotosRepository.getMarsPhotos()
         MarsUiState.Success(
           "Success: ${listResult.size} Mars photos retrieved"
         )
@@ -73,6 +73,7 @@ class MarsViewModel(
   }
 
   companion object {
+    // This is a factory since it is just creating new instances of the class
     val Factory: ViewModelProvider.Factory = viewModelFactory {
       initializer {
         val application = (this[APPLICATION_KEY] as MarsPhotosApplication)
